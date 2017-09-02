@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>PageOne</title>
+
+    <!-- Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  
+<style>
+body, html{
+  background-color: #EEE;
+   height: 100%;
+   padding-top: 50px;
+  margin:0;
+}
+#topnavbar{
+  background-color: #FFF;
+  border-style: solid;
+  border-top: 3px solid #5B2C6F;
+  box-shadow: 0 1px 8px 0 rgba(0,0,0,0.2);
+}
+#Projectname{
+  color: #76448A;
+}
+
+#navbar{
+  padding-top: 7px;
+}
+
+.btn{
+    background-color: #EEE;
+
+}
+#right{
+  padding-top: 50px;
+}
+#left{
+  padding: 20px;
+}
+</style>
+  <body>
+    <div>
+    <nav class="navbar  navbar-fixed-top" id = "topnavbar">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/" id = "Projectname">PageOne</a>
+        </div>
+    </nav>
+  </div>
+</div>
+
+
+
+
+
+  <div class = "container">
+
+
+    <div class = "row">
+
+
+      <div class = "col-md-8" id = "left">
+
+
+
+  <p>All the fields are optional</p>
+  <p>*You may use the HTML tags customization</p>
+    <br/>
+    <br/>
+  <form method = "POST" action = "editpage">
+  <div class="form-group">
+    <label >Name</label>
+    <input type="text" class="form-control" name = "name" value = "{{ details['name'] }}">
+  </div>
+
+<div class="form-group">
+    <label for="exampleInputEmail1">Email</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" name = "email" value="{{ details['email'] }}">
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Phone Number</label>
+    <input type="number" class="form-control" id="exampleInputEmail1" name = "phone" value="{{ details['phone'] }}">
+  </div>
+
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Image Url</label>
+    <p>Link to your display picture</p>
+    <input type="text" class="form-control" id="exampleInputEmail1" name = "img" value="{{ details['img'] }}">
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputPassword1">About me</label>
+    <br/>
+    <textarea rows="4" cols="50" class = "form-control" name = "description">{{ details['description'] }}</textarea>
+  </div>
+
+<div class="form-group">
+    <label for="exampleInputEmail1">Skills</label>
+    <input type="text" class="form-control" name = "skills" id="exampleInputEmail1" value="{{ details['skills'] }}">
+  </div>
+
+<br/>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Education</label>
+    <br/>
+    <textarea rows="4" class = "form-control" cols="50" name = "education">{{ details['education'] }}</textarea>
+    </div>
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Projects</label>
+    <br/>
+    <textarea rows="4" cols="50" class = "form-control" name = "projects">{{ details['projects'] }}</textarea>
+  </div>
+
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Achievements</label>
+    <br/>
+    <textarea rows="4" cols="50" class = "form-control" name = "achievements">{{details['achievements']}}</textarea>
+  </div>
+
+
+  <div class="form-group">
+    <label>Your Intrests</label>
+  </br>
+    <textarea rows="4" cols="50" class = "form-control" name = "intrests">{{ details['intersts'] }}</textarea>
+  </div>
+
+
+
+<div class="form-group">
+    <label for="exampleInputEmail1">Resume Url</label>
+    <input type="text" class="form-control" name = "resume" id="exampleInputEmail1" value="{{ details['resume'] }}">
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Your Blog </label>
+    <input type="text" class="form-control" id="exampleInputEmail1" name = "blog" value="{{ details['blog'] }}">
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Facebook Url</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" name = "fb" value="{{ details['fb'] }}">
+  </div>
+
+
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Twitter Url</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" name = "twitter" value="{{ details['twitter'] }}">
+  </div>
+
+
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Linkedin Url</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" name = "linkedin" value="{{ details['linkedin'] }}">
+  </div>
+
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Github Url</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" name = "github" value="{{ details['github'] }}">
+  
+
+
+    
+
+<div>
+  <br/>
+  <br/>
+    <label for="exampleInputEmail1">Advanced Options </label>
+    <br/>
+</div>
+
+
+
+
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Your Html </label>
+    <p>Use this to add your own content to your webpage.</p>
+  
+    <textarea rows="4" class = "form-control" cols="50" name = "html">{{ html }}</textarea>
+  </div>
+
+<div class="form-group">
+    <label for="exampleInputEmail1">Your Css </label>
+    <p>Use this to Style your webpage.</p>
+  
+    <textarea rows="4" cols="50" name = "css"class = "form-control" >{{ css }}</textarea>
+  </div>
+
+<div>
+  <button type="submit" name = "submit" value = "editpage" class="btn btn-default">Save</button>
+</div>
+
+</form>
+</div>
+
+
+      </div>
+
+
+      <div class = "col-md-4">
+
+
+
+    </div>
+
+
+  </div>
+
+
+
+
+
+
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/docs.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../static/js/bootstrap.min.js"></script>
+
+
+  </body> 
+
+</html>
+
+

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>PageOne</title>
+
+    <!-- Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  
+<style>
+body, html{
+  background-color: #EEE;
+   height: 100%;
+   padding-left: 30px;
+   padding-right: 30px;
+  margin:0;
+}
+#topnavbar{
+  background-color: #FFF;
+  border-style: solid;
+  border-top: 3px solid #5B2C6F;
+  box-shadow: 0 1px 8px 0 rgba(0,0,0,0.2);
+}
+#Projectname{
+  color: #76448A;
+}
+#topnavbar{
+  background-color: #FFF;
+  border-style: solid;
+  border-top: 3px solid #5B2C6F;
+  box-shadow: 0 1px 8px 0 rgba(0,0,0,0.2);
+}
+#Projectname{
+  color: #76448A;
+}
+#form{
+  width: calc(100% - 810px);
+}
+</style>
+  <body>
+    <div>
+    <nav class="navbar  navbar-fixed-top" id = "topnavbar">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/" id = "Projectname">PageOne</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+       
+
+        </div>
+        
+    </nav>
+  </div>
+
+<div id = "form">
+<form method = "POST">
+
+  <div>
+    <h3>Edit a Field</h3>
+  </div>
+</br>
+</br>
+  <div class="form-group">
+    <label>Field Title</label>
+    <input name = "fieldtitle" type="text" class="form-control"  value="{{ title }}">
+  </div>
+  <div class="form-group">
+    <label>Description</label>
+  </br>
+<textarea rows="4" cols="50" name = "fielddescription">{{ description }}</textarea>  
+</div>
+  <button type="submit" name = "submit" value = "save"class="btn btn-default">Save</button>
+    <button type="submit" name = "submit" value = "delete" class="btn btn-default">Delete</button>
+
+</form>
+</div>
+
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/docs.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../static/js/bootstrap.min.js"></script>
+
+
+  </body> 
+
+</html>
+
+

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>PageOne</title>
+
+    <!-- Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+
+        <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  
+<style>
+body, html{
+  background-color: #EEE;
+   padding-top: 50px;
+}
+#topnavbar{
+  background-color: #FFF;
+  border-style: solid;
+  border-top: 3px solid #5B2C6F;
+  box-shadow: 0 1px 8px 0 rgba(0,0,0,0.2);
+}
+#projectname{
+  color: #76448A;;
+}
+
+#logout
+{ 
+ float: right;
+ background-color: #FFF;
+}
+#editpage{
+	float:right;
+	margin-right: 20px;
+	background-color: #FFF;
+}
+#navbar{
+  padding-top: 7px;
+}
+  
+#poll{
+  border-radius: 5px;
+  padding: 20px;
+  border:10px;
+  margin: 20px;
+  background-color: #FFF;
+  box-shadow: 0 0.5px 8px 0 rgba(0,0,0,0.2);
+}
+
+#profilepicture{
+/*	height: 200px;
+
+	width: 100%;*/
+
+  padding-top: 20px;
+}
+
+#controllers{
+padding-top: 20px;
+width: 60%;
+text-align: center;
+vertical-align: middle;
+}
+
+#leftbuttons{
+  width: 100%;
+	text-align: center;
+  background-color: #FFF;
+}
+p{
+  font-size: 20px;
+}
+
+body {font-family: "Lato", sans-serif;}
+
+
+
+label{
+  color:#AAB7B8;
+}
+li{
+  font-size: 20px;
+}
+
+img{
+  width: 250px;
+  height: 250px;
+}
+#togglebutton{
+  background-color: #5B2C6F;
+}
+.icon-bar{
+  background-color: #EEE;
+}
+#navbar{
+  background-color: #FFF;
+}
+
+.icon-bar{
+  background-color:#76448A ;
+}
+{% autoescape false %}
+{{css}}
+{% endautoescape %}
+</style>
+
+  <body>
+    <div>
+    <nav class="navbar  navbar-fixed-top" id = "topnavbar">
+      <div class="container">
+        <div class="navbar-header">
+   <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+               <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+          <a class="navbar-brand" href="/" id = "projectname">PageOne</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse" id = "buttonsdashboard">
+       <div>
+            <form action="/logout">
+    <input type="submit" value="Logout" id = "logout" class = "btn"/>
+</form>
+</div>
+
+<div>
+            <form action="/{{pagename}}">
+    <input type="submit" value="Preview" id = "logout" class = "btn"/>
+</form>
+</div>
+
+        </div>
+        
+    </nav>
+  </div>
+
+
+ 
+
+
+
+<div class = "container">
+
+  <div class = "row">
+
+    <div class = "col-md-4" >
+<div id="wrapper" style="text-align: center">    
+
+      <div id = "profilepicture" style="display: inline-block;">
+    <img src='{{ details['img'] }}' alt="Profilpicture" class="img-circle">
+    <br/>
+      </div>
+
+
+      <div id = "controllers" style="display: inline-block;">
+
+<form action="{{ url_for("editpage",pagename=pagename)}}">
+    <input type="submit" value="Edit Page"   id = "leftbuttons" class = "btn"/>
+</form>
+
+<form action="{{ url_for("theme")}}">
+    <input type="submit" value="Themes"   id = "leftbuttons" class = "btn"/>
+</form>
+
+<form action="{{ url_for("addnewfield")}}">
+    <input type="submit" value="Manage extra fields"   id = "leftbuttons" class = "btn"/>
+</form>
+
+</div>
+</div>
+</div>
+
+
+    <div class = "col-md-8">
+
+     <div >
+        {% autoescape false %}
+    {% if details['name'] != "" or details['email'] != "" or details['education'] != "" or details['description'] != ""%}
+    <div id = "poll">
+
+
+        {% if details['name'] != "" %}
+        <label>Name</label>
+        <p>{{details['name']}}</p>
+        {% endif %}
+
+
+        {% if details['email'] != "" %}
+        <label>Email</label>
+        <p>{{details['email']}}</p>
+        {% endif %}
+
+
+        {% if details['phone'] != "" %}
+        <label>Phone Number</label>
+        <p>{{ details['phone'] }}</p>
+        {% endif %}
+
+        {% if details['education'] != "" %}
+        <label>Education</label>
+
+        <p>{{details['education'] }}</p>
+        {% endif %}
+
+
+        {% if details['description'] != "" %}
+        <label>About me</label>
+        <p>{{details['description']}}</p>
+        {% endif %}
+      </div>
+      {% endif %}
+      {% if details['skills'] != "" or details['projects'] != "" or details['achievements'] != "" or details['intrests'] != "" or details['resume'] != "" or details['blog'] != ""%}
+      <div id = "poll">
+        
+
+        {% if details['skills'] != "" %}
+                <label>Skills</label>
+
+        <p> {{details['skills']}} </p>
+        {% endif %}
+
+
+        {% if details['projects'] != "" %}
+                <label>Projects</label>
+
+        <p> {{details['projects']}} </p>
+        {% endif %}
+
+
+
+        {% if details['achievements'] != "" %}
+                <label>Achievements</label>
+
+        <p> {{details['achievements']}} </p>
+        {% endif %}
+
+      
+
+        {% if details['intrests'] != "" %}
+                <label>Intrests</label>
+
+        <p> {{details['intrests']}} </p>
+        {% endif %}
+
+        
+
+        <div>
+        </hr>
+        </br>
+
+        {% if details['resume'] != "" %}
+
+          <a href = {{ details['resume'] }}>My Resume </a>
+          
+        {% endif %}
+        
+      <!-- <label>Blog</label> -->
+        {% if details['blog'] != "" %}
+          //
+          <a href = {{ details['blog'] }}>My Blog</a>
+
+        {% endif %}
+        </div>
+
+      </div> <!-- end of second poll-->
+      {% endif %}
+
+        {% if extra != []%}
+
+      <div id = "poll">
+
+        {% for i,j in extra %}
+
+        <label>{{i}}</label>
+        <p>{{j}}</p>
+        {% endfor %}
+
+
+      </div>
+      {% endif %}
+
+      {% if html != "" %}
+      <div id = "poll">
+          {{ html }}
+        </div>
+        {% endif %}
+
+
+
+      {% if details['fb'] != "" or details['twitter'] != "" or details['linkedin'] != "" or details['github'] != ""%}
+      <div id = "poll">
+        <label>Connect with me</label>
+      </br>
+      
+        <!-- <label>Facebook</label> -->
+        {% if details['fb'] != "" %}
+
+          <a href = {{ details['fb'] }}>Facebook</a>
+//
+        {% endif %}
+
+      
+        <!-- <label>Twitter</label> -->
+        {% if details['twitter'] != "" %}
+
+          <a href = {{ details['twitter'] }}>Twitter</a>
+//
+        {% endif %}
+
+        
+        <!-- <label>Linkedin</label> -->
+        {% if details['linkedin'] != "" %}
+
+          <a href = {{ details['linkedin'] }}>Linkedin</a>
+//
+        {% endif %}
+        
+        <!-- <label>Github</label> -->
+        {% if details['github'] != "" %}
+
+          <a href = {{ details['github'] }}>Github</a>
+
+        {% endif %}
+      </div>
+
+
+
+
+
+      {% endif %}
+
+
+        
+    </div>
+
+
+
+
+
+    {% endautoescape %}
+</div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+ <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/docs.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../static/js/bootstrap.min.js"></script>
+
+  </body> 
+
+</html>
+
+
