@@ -8,14 +8,7 @@ from wtforms.validators import DataRequired, Email, Length, EqualTo
 
 app = Flask(__name__)
 
-app.config['MONGO_DBNAME'] = "trialdb2729"
-app.config['MONGO_URI'] = "mongodb://sujaybr2729:gr2v390s@ds119533.mlab.com:19533/trialdb2729"
 mongo = PyMongo(app)
-
-
-# # config
-app.config.update(SECRET_KEY = 'SECRET_KEY')
-
 
 # flask-login
 login_manager = LoginManager()
