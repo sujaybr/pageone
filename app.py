@@ -10,6 +10,9 @@ app = Flask(__name__)
 
 mongo = PyMongo(app)
 
+#DB credentials,mlab credentials
+
+
 # flask-login
 login_manager = LoginManager()
 login_manager.init_app(app)
